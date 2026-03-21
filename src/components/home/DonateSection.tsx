@@ -1,0 +1,45 @@
+"use client";
+
+import { Link } from "@/i18n/routing";
+import { Button } from "../ui/Button";
+import { Heart, ArrowRight } from "lucide-react";
+import { useTranslations } from "next-intl";
+
+export function DonateSection() {
+  const t = useTranslations("Hero");
+
+  return (
+    <section className="py-24 relative overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-accent/5 via-transparent to-primary/5 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-accent/10 rounded-full blur-[150px] pointer-events-none" />
+
+      <div className="container mx-auto px-4 relative z-10 max-w-4xl text-center">
+        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-accent/10 border border-primary-accent/20 mb-8">
+          <Heart className="w-4 h-4 text-primary-accent fill-primary-accent" />
+          <span className="text-sm font-bold text-primary-accent tracking-wide">सहयोग करें</span>
+        </div>
+
+        <h2 className="font-display text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight">
+          आपका एक सहयोग,<br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-accent to-orange-400">
+            मुरादाबाद का विकास
+          </span>
+        </h2>
+
+        <p className="text-lg md:text-xl text-white/70 max-w-2xl mx-auto mb-10 leading-relaxed">
+          बिजेंदर यादव के मुरादाबाद विकास अभियान में अपना योगदान दें। आपका हर एक सहयोग जमीनी स्तर पर बदलाव लाता है।
+        </p>
+
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Button size="lg" className="h-14 px-10 text-lg font-bold bg-primary-accent hover:bg-primary-accent/90 text-white rounded-full shadow-[0_0_40px_-10px_rgba(229,57,53,0.5)] hover:scale-105 transition-all" asChild>
+            <Link href="/donate">
+              अभी दान करें <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
+          </Button>
+          <p className="text-sm text-white/40">Indian National Congress Official Channel</p>
+        </div>
+      </div>
+    </section>
+  );
+}

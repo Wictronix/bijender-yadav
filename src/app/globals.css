@@ -1,26 +1,30 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-background: #050c40;
+  --color-foreground: #dfe0ff;
+  
+  --color-primary: #1a237e;
+  --color-primary-accent: #e53935;
+  --color-secondary: #0d1547;
+  --color-surface: #1e2a78;
+  --color-surface-bright: #2e3567;
+  --color-surface-container-low: #0e1648;
+  --color-surface-container-lowest: #00063b;
+  --color-surface-variant: #293162;
+  
+  --color-link: #1976d2;
+  --color-off-white: #f5f5f5;
+  
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-hindi: var(--font-hind), var(--font-inter), sans-serif;
+  --font-display: var(--font-mukta), var(--font-inter), sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    @apply font-sans antialiased selection:bg-primary-accent/30;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

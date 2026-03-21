@@ -1,0 +1,32 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "issues": "Issues",
+    "moradabad": "Moradabad",
+    "blog": "Blog",
+    "events": "Events",
+    "videos": "Video Gallery",
+    "gallery": "Photo Gallery",
+    "press-releases": "Press Releases",
+    "alliance": "INDIA Alliance",
+    "news": "News & Media",
+    "party": "Party",
+    "media": "Media",
+    "manifesto": "Manifesto",
+    "history": "Congress History",
+    "achievements": "Achievements",
+    "inspiration": "Our Inspiration",
+    "fact-check": "Fact Check",
+    "join": "Join Us",
+    "donate": "Donate"
+  },
+  "Hero": {
+    "subtitle": "Voice of Moradabad, With INDIA Alliance",
+    "title1": "A New Era Of",
+    "title2": "Development",
+    "description": "Committed to the progress of Moradabad. Let's build a strong, inclusive, and prosperous future together under the leadership of the Indian National Congress.",
+    "cta_join": "Join the Movement",
+    "cta_vision": "Our Vision"
+  }
+}
