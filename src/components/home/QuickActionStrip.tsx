@@ -1,21 +1,26 @@
-import Link from "next/link";
-import { Newspaper, Users, Share2, Phone } from "lucide-react";
+"use client";
 
-const ACTIONS = [
-  { icon: Newspaper, label: "Latest News", href: "/news" },
-  { icon: Users, label: "Join Movement", href: "/join" },
-  { icon: Share2, label: "Share", href: "#share" }, // Add share logic later
-  { icon: Phone, label: "Contact", href: "/join" },
-];
+import { Link } from "@/i18n/routing";
+import { Newspaper, Users, Share2, Phone } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function QuickActionStrip() {
+  const t = useTranslations("QuickAction");
+
+  const ACTIONS = [
+    { icon: Newspaper, label: t("news"), href: "/news" as const },
+    { icon: Users, label: t("join"), href: "/join" as const },
+    { icon: Share2, label: t("gallery"), href: "/gallery" as const },
+    { icon: Phone, label: t("contact"), href: "/join" as const },
+  ];
+
   return (
     <section className="bg-primary-accent relative z-20 shadow-2xl">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10 border-y border-white/10">
           {ACTIONS.map((action, i) => (
-            <Link 
-              key={action.label} 
+            <Link
+              key={i}
               href={action.href}
               className={`
                 group flex flex-col items-center justify-center p-6 gap-3 min-h-[140px]

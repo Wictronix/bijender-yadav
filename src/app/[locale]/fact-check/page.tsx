@@ -2,48 +2,35 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import type { Metadata } from "next";
 import { CheckCircle, XCircle } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
-  title: "तथ्य जांच — Fact Check | Bijender Yadav",
-  description: "भ्रामक समाचारों की सच्चाई — सत्यापित तथ्यों के साथ।",
+  title: "Fact Check | Bijender Yadav",
+  description: "Verified fact-checks of misleading claims with evidence.",
 };
 
-const FACTS = [
-  {
-    claim: "कांग्रेस ने भारत के लिए कुछ नहीं किया।",
-    verdict: false,
-    explanation: "कांग्रेस ने भारत को स्वतंत्रता दिलाई, संविधान का निर्माण किया, IITs, IIMs की स्थापना की, हरित क्रांति, श्वेत क्रांति, परमाणु कार्यक्रम, आधार, MNREGA, RTI — ये सब कांग्रेस सरकारों की देन हैं।",
-  },
-  {
-    claim: "MNREGA (मनरेगा) विफल योजना है।",
-    verdict: false,
-    explanation: "MNREGA विश्व का सबसे बड़ा रोजगार कार्यक्रम है जिसने 14 करोड़ से अधिक ग्रामीण परिवारों को रोजगार दिया। खुद वर्तमान सरकार भी इसे जारी रखे हुए है।",
-  },
-  {
-    claim: "मुरादाबाद का पीतल उद्योग संकट में है।",
-    verdict: true,
-    explanation: "हां, GST के जटिल ढांचे, कच्चे माल की बढ़ती कीमतों और निर्यात सुविधाओं की कमी के कारण मुरादाबाद का पीतल उद्योग गंभीर संकट में है। बिजेंदर यादव इस उद्योग को पुनर्जीवित करने के लिए लड़ रहे हैं।",
-  },
-  {
-    claim: "कांग्रेस भ्रष्टाचारी पार्टी है।",
-    verdict: false,
-    explanation: "कांग्रेस ने ही RTI (सूचना का अधिकार) कानून बनाया जो सरकारी पारदर्शिता का सबसे बड़ा हथियार है। अगर कांग्रेस भ्रष्ट होती तो यह कानून कभी नहीं बनाती।",
-  },
-];
+export default async function FactCheckPage() {
+  const t = await getTranslations("FactCheckPage");
 
-export default function FactCheckPage() {
+  const FACTS = [
+    { claim: t("claim1"), verdict: false, explanation: t("claim1_exp") },
+    { claim: t("claim2"), verdict: false, explanation: t("claim2_exp") },
+    { claim: t("claim3"), verdict: true, explanation: t("claim3_exp") },
+    { claim: t("claim4"), verdict: false, explanation: t("claim4_exp") },
+  ];
+
   return (
     <>
       <Header />
       <main className="flex-1 flex flex-col pt-20 bg-background min-h-screen">
         <section className="bg-primary-container py-24">
           <div className="container mx-auto px-4 text-center">
-            <p className="text-primary-accent font-bold text-sm uppercase tracking-widest mb-3">तथ्य जांच</p>
+            <p className="text-primary-accent font-bold text-sm uppercase tracking-widest mb-3">{t("badge")}</p>
             <h1 className="font-display text-5xl md:text-6xl font-extrabold text-white mb-4">
-              सच क्या है?
+              {t("title")}
             </h1>
             <p className="text-white/70 max-w-2xl mx-auto">
-              भ्रामक दावों की सत्यापित जांच — तथ्यों के साथ।
+              {t("subtitle")}
             </p>
           </div>
         </section>
@@ -60,9 +47,9 @@ export default function FactCheckPage() {
                   )}
                   <div>
                     <span className={`text-xs font-bold uppercase tracking-widest ${f.verdict ? "text-green-400" : "text-primary-accent"}`}>
-                      {f.verdict ? "✓ सत्य" : "✗ भ्रामक दावा"}
+                      {f.verdict ? t("true_label") : t("false_label")}
                     </span>
-                    <h3 className="text-xl font-bold text-white mt-1">"{f.claim}"</h3>
+                    <h3 className="text-xl font-bold text-white mt-1">&quot;{f.claim}&quot;</h3>
                   </div>
                 </div>
                 <p className="text-white/60 leading-relaxed ml-10">{f.explanation}</p>

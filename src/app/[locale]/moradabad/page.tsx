@@ -1,13 +1,16 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "About Moradabad | Bijender Yadav",
   description: "The history, culture, and future of the Brass City, Moradabad.",
 };
 
-export default function MoradabadPage() {
+export default async function MoradabadPage() {
+  const t = await getTranslations("MoradabadPage");
+
   return (
     <>
       <Header />
@@ -17,10 +20,10 @@ export default function MoradabadPage() {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
           <div className="container mx-auto px-4 relative z-10 text-center">
             <h1 className="font-display text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight">
-              The Heart of <span className="text-primary-accent">Moradabad</span>
+              {t("title_prefix")} <span className="text-primary-accent">{t("title_accent")}</span>
             </h1>
             <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto font-light leading-relaxed">
-              Known globally as the Brass City (Pital Nagri), Moradabad is a city built on the hard work of its artisans, farmers, and traders.
+              {t("subtitle")}
             </p>
           </div>
         </section>
@@ -28,31 +31,31 @@ export default function MoradabadPage() {
         <section className="py-24">
           <div className="container mx-auto px-4 max-w-4xl text-white/80 space-y-12 text-lg leading-relaxed">
             <div>
-              <h2 className="font-display text-3xl font-bold text-white mb-6">Our Heritage: The Brass Industry</h2>
-              <p className="mb-4">Moradabad's identity is inextricably linked to its brass handicrafts industry, which accounts for over 40% of India's total brass exports. Millions of livelihoods depend on the rhythmic beating of metal in the karkhanas (workshops) scattered across the city.</p>
-              <p>However, recent economic policies and lack of infrastructure support have pushed this thriving industry to the brink. Bijender Yadav's primary mission is to revitalize this sector, ensuring artisans receive fair wages, better working conditions, and direct access to international markets without middlemen.</p>
+              <h2 className="font-display text-3xl font-bold text-white mb-6">{t("heritage_title")}</h2>
+              <p className="mb-4">{t("heritage_p1")}</p>
+              <p>{t("heritage_p2")}</p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-12">
                <div className="bg-surface border border-white/10 rounded-2xl p-8">
-                  <h3 className="font-bold text-2xl text-white mb-2">1.5 Million+</h3>
-                  <p className="text-sm text-white/50 uppercase tracking-wider">People dependent on the brass trade</p>
+                  <h3 className="font-bold text-2xl text-white mb-2">{t("stat1")}</h3>
+                  <p className="text-sm text-white/50 uppercase tracking-wider">{t("stat1_label")}</p>
                </div>
                <div className="bg-surface border border-white/10 rounded-2xl p-8">
-                  <h3 className="font-bold text-2xl text-white mb-2">₹10,000 Crore</h3>
-                  <p className="text-sm text-white/50 uppercase tracking-wider">Annual Export Value</p>
+                  <h3 className="font-bold text-2xl text-white mb-2">{t("stat2")}</h3>
+                  <p className="text-sm text-white/50 uppercase tracking-wider">{t("stat2_label")}</p>
                </div>
             </div>
 
             <div>
-              <h2 className="font-display text-3xl font-bold text-white mb-6">Demographics & Unity</h2>
-              <p className="mb-4">Moradabad is a vibrant tapestry of cultures and communities. The strength of this constituency lies in its Ganga-Jamuni tehzeeb—a shared cultural heritage that emphasizes unity in diversity.</p>
-              <p className="mb-4">The Indian National Congress, along with the INDIA Alliance, stands firmly on the principle that the progress of Moradabad requires taking every community along. Divisive politics have only stalled development, and Bijender Yadav is fighting to restore the focus on real issues: education, health, and jobs.</p>
+              <h2 className="font-display text-3xl font-bold text-white mb-6">{t("demo_title")}</h2>
+              <p className="mb-4">{t("demo_p1")}</p>
+              <p className="mb-4">{t("demo_p2")}</p>
             </div>
 
             <div className="p-8 border-l-4 border-primary-accent bg-surface rounded-r-2xl italic text-xl">
-              "Moradabad isn't just a constituency to me; it is my home, my family, and my responsibility. When the furnaces of the brass city burn bright, the whole nation shines." 
-              <span className="block mt-4 text-base font-bold not-italic text-primary-accent">— Bijender Yadav</span>
+              &quot;{t("quote")}&quot; 
+              <span className="block mt-4 text-base font-bold not-italic text-primary-accent">{t("quote_author")}</span>
             </div>
           </div>
         </section>

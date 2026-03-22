@@ -78,15 +78,15 @@ export function Header() {
             <DropdownLink href="/history">{t("history")}</DropdownLink>
             <DropdownLink href="/achievements">{t("achievements")}</DropdownLink>
             <DropdownLink href="/inspiration">{t("inspiration")}</DropdownLink>
-            <DropdownLink href="/fact-check">{t("fact-check")}</DropdownLink>
             <DropdownLink href="/alliance">{t("alliance")}</DropdownLink>
+            <DropdownLink href="/fact-check">{t("fact-check")}</DropdownLink>
+            <div className="border-t border-white/10 my-1" />
+            <a href="https://www.inc.in" target="_blank" rel="noopener noreferrer" className="px-5 py-2.5 text-sm text-white/50 hover:text-white hover:bg-white/5 transition-colors block">inc.in ↗</a>
           </NavDropdown>
 
           <NavDropdown label={t("media")}>
             <DropdownLink href="/news">{t("news")}</DropdownLink>
-            <DropdownLink href="/videos">{t("videos")}</DropdownLink>
             <DropdownLink href="/gallery">{t("gallery")}</DropdownLink>
-            <DropdownLink href="/press-releases">{t("press-releases")}</DropdownLink>
             <DropdownLink href="/blog">{t("blog")}</DropdownLink>
           </NavDropdown>
 
@@ -143,15 +143,14 @@ export function Header() {
             <Link href="/history" className="py-3 text-white/80 hover:text-white" onClick={() => setMobileOpen(false)}>{t("history")}</Link>
             <Link href="/achievements" className="py-3 text-white/80 hover:text-white" onClick={() => setMobileOpen(false)}>{t("achievements")}</Link>
             <Link href="/inspiration" className="py-3 text-white/80 hover:text-white" onClick={() => setMobileOpen(false)}>{t("inspiration")}</Link>
-            <Link href="/fact-check" className="py-3 text-white/80 hover:text-white" onClick={() => setMobileOpen(false)}>{t("fact-check")}</Link>
             <Link href="/alliance" className="py-3 text-white/80 hover:text-white" onClick={() => setMobileOpen(false)}>{t("alliance")}</Link>
+            <Link href="/fact-check" className="py-3 text-white/80 hover:text-white" onClick={() => setMobileOpen(false)}>{t("fact-check")}</Link>
+            <a href="https://www.inc.in" target="_blank" rel="noopener noreferrer" className="py-3 text-white/50 hover:text-white">inc.in ↗</a>
 
             <div className="border-t border-white/5 my-2" />
             <p className="text-xs text-white/30 uppercase tracking-widest font-bold py-1">{t("media")}</p>
             <Link href="/news" className="py-3 text-white/80 hover:text-white" onClick={() => setMobileOpen(false)}>{t("news")}</Link>
-            <Link href="/videos" className="py-3 text-white/80 hover:text-white" onClick={() => setMobileOpen(false)}>{t("videos")}</Link>
             <Link href="/gallery" className="py-3 text-white/80 hover:text-white" onClick={() => setMobileOpen(false)}>{t("gallery")}</Link>
-            <Link href="/press-releases" className="py-3 text-white/80 hover:text-white" onClick={() => setMobileOpen(false)}>{t("press-releases")}</Link>
             <Link href="/blog" className="py-3 text-white/80 hover:text-white" onClick={() => setMobileOpen(false)}>{t("blog")}</Link>
 
             <div className="border-t border-white/5 my-2" />
